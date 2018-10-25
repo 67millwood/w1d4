@@ -1,14 +1,12 @@
 function findWaldo(arr, callback) {
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] === "Waldo") {
-      var location = i;
-      var name = arr[i];
-      callback(location, name);   // execute callback
+  arr.forEach(function(item, index) {
+    if (item === "Waldo") {
+      callback(item, index);   // execute callback
     }
-  }
+  })
 }
 
-function actionWhenFound(location, name) {
+function actionWhenFound(name, location) {
   console.log("we found " + name + " at index " + location);
 }
 
