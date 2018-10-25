@@ -1,12 +1,15 @@
-var myFn = function() {
-  console.log("I am function.");
+function findWaldo(arr, callback) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === "Waldo") {
+      var location = i;
+      var name = arr[i];
+      callback(location, name);   // execute callback
+    }
+  }
 }
 
-myFn.someAttribute = 42;
-console.log(myFn.someAttribute);
-
-function runner(f) {
-  f();
+function actionWhenFound(location, name) {
+  console.log("we found " + name + " at index " + location);
 }
 
-runner(myFn);
+findWaldo(["Alice", "Bob", "Waldo", "Winston"], actionWhenFound);
